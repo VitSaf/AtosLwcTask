@@ -37,7 +37,7 @@ public with sharing class TaskHandler {
             usersWithNewNotStartedTasks.put(userId, 0);
             usersWithNewTasksInProgress.put(userId, 0);
         }
-        for (Task t : [SELECT Id, Status, Owner.Id FROM Task WHERE Owner.Type='User' AND Owner.Id IN :userIds]) {
+        for (Task t : [SELECT Id, Status, Owner.Id FROM Task WHERE Owner.Type= 'User' AND Owner.Id IN :userIds]) {
             if (t.Status == 'In Progress') {
                 usersWithNewTasksInProgress.put(t.OwnerId, usersWithNewTasksInProgress.get(t.OwnerId) + 1);
             }
@@ -58,4 +58,3 @@ public with sharing class TaskHandler {
         }
     }
 }
-//SELECT Id, In_progress_tasks__c, Not_started_tasks__c, (SELECT Id, OwnerId, Status FROM Tasks) FROM User
