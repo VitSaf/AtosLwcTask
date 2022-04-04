@@ -1,0 +1,8 @@
+<template>
+    <div class="slds-box slds-box_x-small slds-theme_default">
+        <c-user-search-component onselected={userSelected}></c-user-search-component>
+        <lightning-input type="text" label="Description" value={taskDescription} onchange={changeDescription} required></lightning-input>
+        <lightning-input type="date" label="ActivityDate" value={deadlineDate}  onchange={changeDeadlineDate} min={minDate} class="slds-m-bottom_x-small" required></lightning-input>
+        <lightning-button variant="brand" label="Create task" onclick={handleClick} disabled={isFieldsFilled}></lightning-button>
+    </div>
+</template>

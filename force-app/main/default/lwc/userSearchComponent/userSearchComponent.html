@@ -1,0 +1,24 @@
+<template>
+        <div>
+            <lightning-input
+                name="enter-search"
+                label="Search for a user"
+                type="search"
+                value={queryTerm}
+                onchange={handleChangeQueryTerm}
+                class="slds-m-bottom_x-small"
+            ></lightning-input>
+            <lightning-button variant="brand" label="Find users" onclick={handleClick}></lightning-button>
+        </div>
+        <template if:true={searchResult}>
+            <lightning-radio-group name="radioGroup"
+                            label="Users found"
+                            options={options}
+                            value={value}
+                            onchange={handleChange}
+                            type="radio"
+                            required
+                            >
+            </lightning-radio-group>
+        </template>
+</template>
